@@ -1,0 +1,40 @@
+<html>
+
+<style>
+  body {background-color:lightgreen}
+</style>
+
+<body>
+
+<p> Info-Blaster Digital Signage Administration </p>
+<p> Digital Signage changes including file upload/undo/redo will not take effect until rebooted. </p>
+
+<FORM ACTION="../admin/index.php">
+<INPUT TYPE="submit" VALUE="Go to general/web-server admin">
+</FORM>
+
+<FORM ACTION="../instructionsDS/index.php">
+<INPUT TYPE="submit" VALUE="Digital Signage Instructions">
+</FORM>
+
+<form action="../adminScripts/upload_file_ds.php" method="post"
+enctype="multipart/form-data">
+<label for="file">Filename to Upload:</label>
+<input type="file" name="file" id="file"><br>
+<input type="submit" name="submit" value="Submit">
+</form>
+
+<FORM ACTION="../adminScripts/undo_ds.php">
+<INPUT TYPE="submit" VALUE="Undo/Redo">
+</FORM>
+
+<FORM ACTION="../adminScripts/editDSCfg.php">
+<INPUT TYPE="submit" VALUE="Edit Digital Signage Config">
+</FORM>
+
+<FORM ACTION="../adminScripts/reboot.php">
+<INPUT TYPE="submit" VALUE="Reboot">
+</FORM>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+#quickStart ol li:hover {
+   background-color: rgb(83, 142, 213);
+}
+
+#quickStart ol li {
+   list-style-type: lower-alpha;
+}
