@@ -1,0 +1,45 @@
+noobs 3.3.1, raspbian 4.19
+(sudo raspi-config, boot to command line with password, disable overscan, set wifi country to japan)
+(add dns-nameservers 8.8.8.8 8.8.4.4 in /etc/network/interfaces)
+(sudo apt-get update)
+(sudo service ssh start)
+
+sudo apt-get install iptables-persistent conntrack dnsmasq dnsutils nginx 
+sudo apt-get install php7.0-fpm php7.0-curl php7.0-gd php7.0-cli php7.0-mcrypt
+sudo apt-get install hostapd apache2-utils
+sudo apt-get install fbi fping
+sudo apt-get install php7.0-zip
+
+copy files from files_for_rpi
+
+cd /tmp
+sudo chmod 755 /tmp/copyfiles.sh
+sudo bash /tmp/copyfiles.sh
+
+sudo mkdir /etc/nginx/passwd
+sudo htpasswd -c /etc/nginx/passwd/.htpasswd info-blaster
+sudo chown www-data /etc/nginx/passwd/.htpasswd
+skip: echo 0 > /proc/sys/net/ipv4/ip_forward
+
+sudo chmod 755 /tmp/iptables.sh
+sudo chmod 755 /tmp/nginx.sh
+sudo chmod 755 /tmp/configDs.sh
+sudo bash /tmp/iptables.sh
+sudo bash /tmp/nginx.sh
+sudo bash /tmp/configDs.sh
+
+sudo visudo
+append the lines below:
+www-data ALL=(ALL) NOPASSWD: /bin/date
+www-data ALL=(ALL) NOPASSWD: /sbin/shutdown
+www-data ALL=(ALL) NOPASSWD: /sbin/reboot
+
+sudo chmod 755 /tmp/misc1.sh
+sudo bash /tmp/misc1.sh
+
+passwd
+
+
+
+
+
